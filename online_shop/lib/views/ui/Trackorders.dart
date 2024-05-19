@@ -12,6 +12,7 @@ class TrackOrderPageState extends State<TrackOrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Text("track order", style: appstyle(40, Colors.black, FontWeight.bold),),
       ),

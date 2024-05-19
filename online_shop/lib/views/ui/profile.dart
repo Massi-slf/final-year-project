@@ -7,6 +7,7 @@ import 'package:online_shop/views/ui/Trackorders.dart';
 import 'dart:developer' as developer;
 
 import 'package:online_shop/views/shared/export.dart';
+import 'package:online_shop/views/ui/couponsPage.dart';
 import 'package:online_shop/views/ui/shippingadress.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -61,6 +62,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     ListTile(
                       title: Text('Coupons',style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
                       trailing: Icon(Icons.navigate_next),
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(builder: (context) =>CouponsPage ()));
+                      },
                     ),
                     ListTile(
                       title: Text('My reviews',style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
