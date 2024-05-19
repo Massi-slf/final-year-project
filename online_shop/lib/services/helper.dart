@@ -69,4 +69,6 @@ class Helper {
 
     return sneaker;
   }
+
+  search(String text) {}
 }

@@ -12,6 +12,9 @@ class ShippingAdressState extends State<ShippingAdress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+      ),
       body: CustomScrollView(
           physics: ClampingScrollPhysics(),
           slivers: <Widget>[
