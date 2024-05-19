@@ -117,17 +117,25 @@ class _ProductCardState extends State<ProductCard> {
                       children: [
                         reusableText(
                           text: "Colors",
-                          style: appstyle(18, Colors.grey, FontWeight.w500),
+                          style: appstyle(13, Colors.grey, FontWeight.w500),
                         ),
                         SizedBox(
-                          width: 5.w,
+                          width: 4.w,
                         ),
-                        ChoiceChip(
-                          label: const Text(" "),
+                        /*ChoiceChip(
+                          label: const Text(""),
                           selected: selected,
                           visualDensity: VisualDensity.compact,
                           selectedColor: Colors.black,
-                        )
+                        )*/
+                         Chip(
+                           backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                           padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                           label: Text(' ') ,
+                         ),
+        
+      
                       ],
                     )
                   ],

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           ),
 
           // sets the homescreen of the app
-          home: LoginPage(),
+          home: MainScreen(),
         );
       }
     );
