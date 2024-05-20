@@ -13,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+    
   cupertino_icons: ^1.0.2
   flutter_vector_icons: ^2.0.0
   google_fonts: ^4.0.3
@@ -25,6 +25,7 @@ dependencies:
   hive_flutter:
   provider: ^6.0.5
   http: ^1.2.1
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

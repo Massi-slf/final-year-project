@@ -1,6 +1,6 @@
+import 'package:online_shop/controllers/login_provider.dart';
 import 'package:online_shop/views/shared/export.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
-import 'package:online_shop/views/ui/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +14,8 @@ void main() async {
     ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
     ChangeNotifierProvider(create: (context) => ProductNotifier()),
     ChangeNotifierProvider(create: (context) => CartProvider()),
-    ChangeNotifierProvider(create: (context)=> FavoritesNotifier())
+    ChangeNotifierProvider(create: (context)=> FavoritesNotifier()),
+    ChangeNotifierProvider(create: (context)=> LoginNotifier()),
    
   ], child: const MyApp()));
 }
@@ -33,13 +34,13 @@ class MyApp extends StatelessWidget {
       builder: (context , child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'dbestech',
+          title: 'eggs',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
 
           // sets the homescreen of the app
-          home: LoginPage(),
+          home: MainScreen(),
         );
       }
     );

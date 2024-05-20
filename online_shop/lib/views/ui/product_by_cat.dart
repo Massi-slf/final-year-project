@@ -117,7 +117,7 @@ class _ProductByCatState extends State<ProductByCat>
   }
 
   Future<dynamic> filter() {
-    double _value = 100;
+    double value = 100;
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
@@ -165,8 +165,8 @@ class _ProductByCatState extends State<ProductByCat>
                             const SizedBox(
                               height: 20,
                             ),
-                            Row(
-                              children: const [
+                            const Row(
+                              children: [
                                 CategoryBtn(
                                   label: "Men",
                                   buttonClr: Colors.black,
@@ -190,8 +190,8 @@ class _ProductByCatState extends State<ProductByCat>
                             const SizedBox(
                               height: 20,
                             ),
-                            Row(
-                              children: const [
+                            const Row(
+                              children: [
                                 CategoryBtn(
                                   label: "Shoes",
                                   buttonClr: Colors.black,
@@ -213,13 +213,13 @@ class _ProductByCatState extends State<ProductByCat>
                                     20, Colors.black, FontWeight.bold)),
                             const CustomSpacer(),
                             Slider(
-                                value: _value,
+                                value: value,
                                 activeColor: Colors.black,
                                 inactiveColor: Colors.grey,
                                 thumbColor: Colors.black,
                                 max: 500,
                                 divisions: 50,
-                                label: _value.toString(),
+                                label: value.toString(),
                                 //secondaryTrackValue: 200,
                                 onChanged: (double value) {}),
                             const CustomSpacer(),

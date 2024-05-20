@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/views/shared/appstyle.dart';
 
 class ShippingAdress extends StatefulWidget {
   const ShippingAdress({super.key});
@@ -16,17 +15,17 @@ class ShippingAdressState extends State<ShippingAdress> {
         elevation: 0,
       ),
       body: CustomScrollView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           slivers: <Widget>[
            
             SliverList(
               
               delegate: SliverChildListDelegate(
                   [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    Column(
+                    const Column(
                       
                       children: [
                     ListTile(

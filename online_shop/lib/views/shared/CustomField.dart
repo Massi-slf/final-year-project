@@ -9,7 +9,7 @@ class CustomField extends StatelessWidget {
     this.validator, 
     this.keyboard,
     this.suffixIcon,
-    this.obscureText, this.onEditingComlete,this.prefixIcon,
+    this.obscureText, this.onEditingComlete,this.prefixIcon, required Null Function() onEditingComplete,
     
   }) :super(key: key);
   final TextEditingController controller;

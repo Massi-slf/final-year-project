@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_shop/views/shared/appstyle.dart';
-import 'package:online_shop/views/shared/custom_spacer.dart';
 import 'package:online_shop/views/shared/reuseable_text.dart';
 
 class StaggerTile extends StatefulWidget {
