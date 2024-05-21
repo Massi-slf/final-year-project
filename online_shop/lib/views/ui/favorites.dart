@@ -11,7 +11,20 @@ class Favorites extends StatefulWidget {
 class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
+    var authNotifier = Provider.of<FavoritesNotifier>(context);
     var favoritesNotifier = Provider.of<FavoritesNotifier>(context);
+    // List<dynamic> fav = [];
+    // final favData = _favBox.keys.map((key){
+    //   final item = _favBox.get(key);
+    //   return{
+    //     "key" : key,
+    //     "id" : item['id'],
+    //     "category" : item['category'],
+    //     "name" : item['name'],
+    //     "imageUrl" : item['imageUrl'],
+    //     "price" : item['price'],
+    //   };
+    // }).toList();
     favoritesNotifier.getAllData();
     return Scaffold(
         backgroundColor: const Color(0xFFE2E2E2),

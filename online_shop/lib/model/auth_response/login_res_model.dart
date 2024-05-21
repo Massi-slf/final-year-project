@@ -6,14 +6,14 @@ LoginResponseModel loginResponseModelFromJson(String str) => LoginResponseModel.
 class LoginResponseModel {
     LoginResponseModel({
         required this.id,
-        required this.token,
+        required this.access,
     });
 
     final String id;
-    final String token;
+    final String access;
 
     factory LoginResponseModel.fromJson(Map<String, dynamic> json) => LoginResponseModel(
-        id: json["_id"],
-        token: json["token"],
+        id: json["id"] ?? "noId",
+        access: json["access"],
     );
 }

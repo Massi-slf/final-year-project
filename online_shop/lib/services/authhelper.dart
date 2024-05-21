@@ -11,16 +11,18 @@ class AuthHelpr {
   static var client = http.Client();
 
   Future<bool> login(LoginModel model) async {
-    Map<String, String> requestHeaders = {'Content-Type': 'application.json'};
-    var url = Uri.http(Config.apiUrl, Config.loginUrl);
+    Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
+    print(Config.apiUrl+ Config.loginUrl);
+     var url = Uri.parse(Config.apiUrl+ Config.loginUrl);
+
     var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
     if (response.statusCode == 200) {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      String userToken = loginResponseModelFromJson(response.body).token;
-      String userID = loginResponseModelFromJson(response.body).id;
-
+      String userToken = loginResponseModelFromJson(response.body).access;
+      print(userToken);
+      String userID = "sdf23rfg2wfepjds";
       await prefs.setString('token', userToken);
       await prefs.setString('userID', userID);
       await prefs.setBool('isLogged', true);
@@ -32,8 +34,9 @@ class AuthHelpr {
   }
 
   Future<bool> singup(SignupModel model) async {
-    Map<String, String> requestHeaders = {'Content-Type': 'application.json'};
+    Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
     var url = Uri.http(Config.apiUrl, Config.signupUrl);
+
     var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
     if (response.statusCode == 201) {
@@ -47,7 +50,7 @@ class AuthHelpr {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String? userToken = prefs.getString('token');
     Map<String, String> requestHeaders = {
-      'Constent-Type': 'application.json',
+      'Constent-Type': 'application/json',
       'token': 'Bearer $userToken'
     };
     var url = Uri.http(Config.apiUrl, Config.getUserUrl);

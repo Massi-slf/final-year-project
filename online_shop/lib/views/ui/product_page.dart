@@ -1,7 +1,6 @@
 import 'package:online_shop/views/shared/export.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
 
-
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key, required this.id, required this.category});
 
@@ -223,7 +222,7 @@ class _ProductPageState extends State<ProductPage> {
                                                     itemSize: 22.h,
                                                     itemPadding:
                                                         const EdgeInsets
-                                                                .symmetric(
+                                                            .symmetric(
                                                             horizontal: 1),
                                                     itemBuilder: (context, _) =>
                                                         Icon(

@@ -40,7 +40,7 @@ class MyUser(AbstractUser, PermissionsMixin, BaseModel):
     last_name = models.CharField("last name", max_length=200, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField("active", default=False)
+    is_active = models.BooleanField("active", default=True)
     is_staff = models.BooleanField("is staff", default=False)
 
     user_type = models.CharField(

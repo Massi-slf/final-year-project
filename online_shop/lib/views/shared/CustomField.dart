@@ -1,5 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:online_shop/views/shared/appstyle.dart';
 
 class CustomField extends StatelessWidget {
   const CustomField({

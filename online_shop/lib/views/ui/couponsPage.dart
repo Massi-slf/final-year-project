@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/views/shared/appstyle.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
 
 class CouponsPage extends StatefulWidget {
@@ -15,7 +14,7 @@ class CouponsPageState extends State<CouponsPage> {
     return Scaffold(
       appBar: AppBar( 
         centerTitle: true,
-        title: Text("My Coupons", style: TextStyle(fontWeight: FontWeight.w800, fontSize: 30) ),
+        title: const Text("My Coupons", style: TextStyle(fontWeight: FontWeight.w800, fontSize: 30) ),
       ),
       body: CustomScrollView(
           physics: ClampingScrollPhysics(),
@@ -25,19 +24,19 @@ class CouponsPageState extends State<CouponsPage> {
               
               delegate: SliverChildListDelegate(
                   [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    Column(
+                    const Column(
                       
                       children: [
                     ListTile(
                       leading: Padding(
-                        padding: const EdgeInsets.only(left: 50),
+                        padding: EdgeInsets.only(left: 50),
                         child: Icon(Icons.discount),
                       ),
                       contentPadding: EdgeInsets.only(top:  10,bottom: 10),
-                      title: Padding(padding: const EdgeInsets.only(top:10, bottom: 10),
+                      title: Padding(padding: EdgeInsets.only(top:10, bottom: 10),
                       child: Text ('A90',style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20,color: Colors.white),)),
                       tileColor: Colors.black,
                       
@@ -48,11 +47,11 @@ class CouponsPageState extends State<CouponsPage> {
                     SizedBox(height: 20,),
                      ListTile(
                       leading: Padding(
-                        padding: const EdgeInsets.only(left: 50),
+                        padding: EdgeInsets.only(left: 50),
                         child: Icon(Icons.discount),
                       ),
                       contentPadding: EdgeInsets.only(top:  10,bottom: 10),
-                      title: Padding(padding: const EdgeInsets.only(top:10, bottom: 10),
+                      title: Padding(padding: EdgeInsets.only(top:10, bottom: 10),
                       child: Text ('HGFHUG',style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20,color: Colors.white),)),
                       tileColor: Colors.black,
                       
