@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       builder: (context , child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'eggs',
+          title: 'commerce-90',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
