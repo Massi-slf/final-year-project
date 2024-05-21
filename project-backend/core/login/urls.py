@@ -3,7 +3,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import TokenLogoutView,AuthenticatedUserView
 
-app_name = "jwt"
+app_name = "login"
 
 urlpatterns = [
     path("login/", TokenObtainPairView.as_view(), name="token-obtain_pair"),
