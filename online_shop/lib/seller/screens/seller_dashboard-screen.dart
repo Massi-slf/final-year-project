@@ -1,6 +1,7 @@
 import 'package:online_shop/client/views/shared/export.dart';
 import 'package:online_shop/client/views/shared/export_packages.dart';
 import 'package:online_shop/seller/screens/products_screen.dart';
+import 'package:online_shop/seller/screens/seller_profile.dart';
 
 
 
@@ -8,10 +9,10 @@ class sellerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 75, 75, 75),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         title: Text('Seller Dashboard'),
-        backgroundColor: const Color.fromARGB(255, 59, 59, 59),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         centerTitle: true,
       ),
       body: Center(
@@ -35,7 +36,7 @@ class sellerScreen extends StatelessWidget {
                 );},
                   child: Container(
                     decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 0, 0, 0),
                      borderRadius: BorderRadius.all(
            Radius.circular(10))
         ),
@@ -54,7 +55,7 @@ class sellerScreen extends StatelessWidget {
                 );},
                   child: Container(
                     decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: const Color.fromARGB(255, 0, 0, 0),
                      borderRadius: BorderRadius.all(
            Radius.circular(10))
         ),
@@ -69,11 +70,11 @@ class sellerScreen extends StatelessWidget {
                    onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProductScreen()),
+                  MaterialPageRoute(builder: (context) => SellerProfile()),
                 );},
                   child: Container(
                     decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 119, 128, 136),
+                    color: Color.fromARGB(255, 0, 0, 0),
                      borderRadius: BorderRadius.all(
            Radius.circular(10))
         ),

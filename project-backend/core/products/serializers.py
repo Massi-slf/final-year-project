@@ -3,9 +3,13 @@ from .models import Product, Category, ProductImage,ProductCoupon
 from django.utils import timezone
 
 class ProductImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     class Meta:
         model = ProductImage
-        fields = ['id', 'image']
+        fields = ['image']
+
+    def get_image(self, obj):
+        return obj.image.url
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,10 +18,18 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class BasicProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
+    images = serializers.SerializerMethodField('get_image_urls')
+
     
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'category',]
+        fields = ['id', 'name', 'images', 'price', 'category', 'quintity']
+
+    def get_image_urls(self, obj):
+        request = self.context.get('request')
+        absolute_base_url = request.build_absolute_uri('/')[:-1]  # Remove the trailing slash
+        image_urls = [absolute_base_url + image.image.url for image in obj.images.all()]
+        return image_urls
 
 class DetailedProductSerializer(BasicProductSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
