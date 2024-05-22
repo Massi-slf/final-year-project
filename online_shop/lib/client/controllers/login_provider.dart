@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop/client/model/auth/login_model.dart';
+import 'package:online_shop/client/model/auth/signup_model.dart';
 import 'package:online_shop/client/services/authhelper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -57,7 +58,10 @@ logout() async{
 
 }
 
-
+Future<bool> registerUser(SignupModel model) async {
+  responceBool = await AuthHelpr().singup(model);
+  return responceBool;
+}
 
 
 }
