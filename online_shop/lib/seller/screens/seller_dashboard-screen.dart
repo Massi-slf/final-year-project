@@ -1,5 +1,6 @@
 import 'package:online_shop/client/views/shared/export.dart';
 import 'package:online_shop/client/views/shared/export_packages.dart';
+import 'package:online_shop/seller/screens/add_product.dart';
 import 'package:online_shop/seller/screens/products_screen.dart';
 import 'package:online_shop/seller/screens/seller_profile.dart';
 
@@ -51,7 +52,7 @@ class sellerScreen extends StatelessWidget {
                    onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProductScreen()),
+                  MaterialPageRoute(builder: (context) => AddProduct()),
                 );},
                   child: Container(
                     decoration: BoxDecoration(

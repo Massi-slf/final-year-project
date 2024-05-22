@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String baseUrl = "http://192.168.191.69:8000/api"; // Corrected IP
+  final String baseUrl = "http://10.0.2.2:8000/api"; // Corrected IP
 
   Future<Map<String, dynamic>> fetchProducts() async {
     final response = await http.get(Uri.parse('$baseUrl/products/'));
