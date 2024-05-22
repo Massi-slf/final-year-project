@@ -9,7 +9,7 @@ class ProductImageInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'stock']  # Display fields in the list view
+    list_display = ['name', 'price', 'quintity']  # Display fields in the list view
     search_fields = ['name', 'price' ]  # Optional: for easier search in the admin
     inlines = [ProductImageInline]
 

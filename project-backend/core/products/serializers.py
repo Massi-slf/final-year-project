@@ -10,14 +10,14 @@ class ProductImageSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'parent']
+        fields = ['id', 'name', 'parent']
 
 class BasicProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     
     class Meta:
         model = Product
-        fields = ['id', 'name', 'slug', 'price', 'category',]
+        fields = ['id', 'name', 'price', 'category',]
 
 class DetailedProductSerializer(BasicProductSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
