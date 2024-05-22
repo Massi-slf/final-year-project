@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop/seller/models/product.dart';
+import 'package:online_shop/seller/screens/seller_dashboard-screen.dart';
 import 'package:online_shop/seller/services/api_service.dart';
 
 
@@ -56,6 +57,12 @@ class ProductScreenState extends State<ProductScreen> {
                      
                     ],
                   ),
+                  onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>  sellerScreen()));
+                      },
                   trailing: Icon(Icons.edit),
                 );
               },
