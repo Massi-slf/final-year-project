@@ -12,16 +12,12 @@ class AuthHelpr {
 
   Future<bool> login(LoginModel model) async {
     Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
-    print(Config.apiUrl+ Config.loginUrl);
-     var url = Uri.parse(Config.apiUrl+ Config.loginUrl);
-
+    var url = Uri.parse(Config.apiUrl + Config.loginUrl);
     var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
     if (response.statusCode == 200) {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-
       String userToken = loginResponseModelFromJson(response.body).access;
-      print(userToken);
       String userID = "sdf23rfg2wfepjds";
       await prefs.setString('token', userToken);
       await prefs.setString('userID', userID);
@@ -35,8 +31,7 @@ class AuthHelpr {
 
   Future<bool> singup(SignupModel model) async {
     Map<String, String> requestHeaders = {'Content-Type': 'application/json'};
-    var url = Uri.http(Config.apiUrl, Config.signupUrl);
-
+    var url = Uri.parse(Config.apiUrl + Config.signupUrl);
     var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
     if (response.statusCode == 201) {
@@ -51,13 +46,14 @@ class AuthHelpr {
     String? userToken = prefs.getString('token');
     Map<String, String> requestHeaders = {
       'Constent-Type': 'application/json',
-      'token': 'Bearer $userToken'
+      'Authorization': 'Bearer $userToken'
     };
-    var url = Uri.http(Config.apiUrl, Config.getUserUrl);
-    var response = await client.post(url, headers: requestHeaders);
+    var url = Uri.parse(Config.apiUrl + Config.getUserUrl);
+
+    var response = await client.get(url, headers: requestHeaders);
+
     if (response.statusCode == 200) {
       var profile = profileResFromJson(response.body);
-
       return profile;
     } else {
       throw Exception("Fialed get the profile data");

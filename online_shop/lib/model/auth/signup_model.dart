@@ -25,5 +25,6 @@ class SignupModel {
         "username": username,
         "email": email,
         "password": password,
+        "password2": password,
     };
 }

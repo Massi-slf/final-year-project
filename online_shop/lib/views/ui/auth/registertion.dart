@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop/controllers/login_provider.dart';
+import 'package:online_shop/model/auth/signup_model.dart';
 import 'package:online_shop/views/shared/appstyle.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
 import 'package:online_shop/views/shared/reuseable_text.dart';
@@ -18,6 +19,18 @@ class _RegistertionState extends State<Registertion> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController username = TextEditingController();
+
+  bool validator = false;
+  void formValidator() {
+    if (email.text.isNotEmpty &&
+        password.text.isNotEmpty &&
+        username.text.isNotEmpty) {
+      validator = true;
+    } else {
+      validator = false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var authNotifier = Provider.of<LoginNotifier>(context);
@@ -65,7 +78,7 @@ class _RegistertionState extends State<Registertion> {
               hintText: "Username  ",
               controller: username,
               validator: (username) {
-                if (username!.isEmpty ) {
+                if (username!.isEmpty) {
                   return "Please Enter Valid your username";
                 } else {
                   return null;
@@ -74,7 +87,8 @@ class _RegistertionState extends State<Registertion> {
             ),
             SizedBox(
               height: 15.h,
-            ),            CustomTextField(
+            ),
+            CustomTextField(
               hintText: "password  ",
               controller: password,
               obscureText: authNotifier.isObsecure,
@@ -115,7 +129,28 @@ class _RegistertionState extends State<Registertion> {
               height: 40.h,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                formValidator();
+                if (validator) {
+                  SignupModel model = SignupModel(
+                      username: username.text,
+                      email: email.text,
+                      password: password.text);
+
+                  authNotifier.registerUser(model).then((response) {
+                    if (response == true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
+                    } else {
+                      print('1not valid');
+                    }
+                  });
+                } else {
+                  print('2not valid');
+                }
+              },
               child: Container(
                 height: 55.5,
                 width: 300,
