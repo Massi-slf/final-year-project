@@ -16,7 +16,7 @@ class Product(BaseModel):
     description = models.TextField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
     category = models.ForeignKey(Category,related_name='products',on_delete=models.CASCADE)
-    stock = models.PositiveIntegerField(default=1)
+    quintity = models.PositiveIntegerField(default=1)
 
     def featured_image(self):
         featured = self.images.fitler(is_featured=True).first()

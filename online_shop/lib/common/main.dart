@@ -1,7 +1,9 @@
+
 import 'package:online_shop/client/controllers/login_provider.dart';
 import 'package:online_shop/client/views/shared/export.dart';
 import 'package:online_shop/client/views/shared/export_packages.dart';
 import 'package:online_shop/common/auth/login.dart';
+import 'package:online_shop/seller/screens/seller_dashboard-screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,13 +37,10 @@ class MyApp extends StatelessWidget {
       builder: (context , child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'commerce-90',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          
 
           // sets the homescreen of the app
-          home: const LoginPage(),
+          home: LoginPage(),
         );
       }
     );
