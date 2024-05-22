@@ -5,7 +5,7 @@ from .serializers import BasicProductSerializer, DetailedProductSerializer,Categ
 from common.permissions    import IsAdmin
 
 
-class ProductsAddListView(ListAPIView):
+class ProductsAddListView(ListCreateAPIView):
     queryset = Product.objects.all()
     permission_classes = [AllowAny]
     serializer_class = BasicProductSerializer

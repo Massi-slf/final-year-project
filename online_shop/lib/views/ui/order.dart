@@ -1,14 +1,16 @@
+import 'package:online_shop/model/orders/orders_req.dart';
 import 'package:online_shop/views/shared/export.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
+import 'package:online_shop/widgets/reusable_text.dart';
 
-class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+class OrderPage extends StatefulWidget {
+  const OrderPage({super.key});
 
   @override
-  State<CartPage> createState() => _CartPageState();
+  State<OrderPage> createState() => _OrderPageState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     var cartProvider = Provider.of<CartProvider>(context);
@@ -35,7 +37,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ),
                 reusableText(
-                  text: "My Cart",
+                  text: "My Orders",
                   style: appstyle(36, Colors.black, FontWeight.bold),
                 ),
                 SizedBox(
@@ -78,8 +80,8 @@ class _CartPageState extends State<CartPage> {
                                             padding: EdgeInsets.all(12.h),
                                             child: CachedNetworkImage(
                                               imageUrl: data['imageUrl'],
-                                              width: 70.w,
-                                              height: 70.h,
+                                              width: 50.w,
+                                              height: 50.h,
                                               fit: BoxFit.fill,
                                             ),
                                           ),
@@ -96,8 +98,8 @@ class _CartPageState extends State<CartPage> {
                                                               MainScreen()));
                                                 },
                                                 child: Container(
-                                                  width: 40.h,
-                                                  height: 30.h,
+                                                  width: 30.h,
+                                                  height: 20.h,
                                                   decoration: BoxDecoration(
                                                       color: Colors.black,
                                                       borderRadius:
@@ -147,7 +149,7 @@ class _CartPageState extends State<CartPage> {
                                                 reusableText(
                                                   text: "\$${data['price']}",
                                                   style: appstyle(
-                                                      18,
+                                                      12,
                                                       Colors.black,
                                                       FontWeight.w600),
                                                 ),
@@ -158,7 +160,7 @@ class _CartPageState extends State<CartPage> {
                                                   text:
                                                       "Size   ${data['sizes']}",
                                                   style: appstyle(
-                                                      18,
+                                                      10,
                                                       Colors.grey,
                                                       FontWeight.w600),
                                                 ),
@@ -169,53 +171,35 @@ class _CartPageState extends State<CartPage> {
                                       )
                                     ],
                                   ),
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(16))),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              InkWell(
-                                                  onTap: () {
-                                                    cartProvider.decrement();
-                                                  },
-                                                  child: const Icon(
-                                                    AntDesign.minussquare,
-                                                    size: 20,
-                                                    color: Colors.grey,
-                                                  )),
-                                              Text(
-                                                // data['qty'].toString(),
-                                                cartProvider.counter.toString(),
-                                                style: appstyle(
-                                                  16,
-                                                  Colors.black,
-                                                  FontWeight.w600,
-                                                ),
-                                              ),
-                                              InkWell(
-                                                  onTap: () {
-                                                    cartProvider.increment();
-                                                  },
-                                                  child: const Icon(
-                                                    AntDesign.plussquare,
-                                                    size: 20,
-                                                    color: Colors.black,
-                                                  )),
-                                            ],
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      color: Colors.black12
+                                    ),
+                                    child: Row(
+                                      
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(16))),
+                                            child: Row(
+                                              children: [
+                                                const Icon(MaterialCommunityIcons
+                                                    .truck_fast_outline,
+                                                    size: 16,),
+                                                    SizedBox(width: 10.h,),
+                                                    ReusableText(text: 'PENDING', style: appstyle(8, Colors.black, FontWeight.w600))
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-
-                                      // ),
-                                    ],
+                                    
+                                        // ),
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),

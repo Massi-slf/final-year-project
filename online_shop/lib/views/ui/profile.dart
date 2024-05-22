@@ -5,6 +5,7 @@ import 'package:online_shop/views/shared/appstyle.dart';
 import 'package:online_shop/views/shared/export_packages.dart';
 import 'package:online_shop/views/ui/auth/login.dart';
 import 'package:online_shop/views/ui/nonuser.dart';
+import 'package:online_shop/views/ui/order.dart';
 
 import 'package:online_shop/views/ui/shippingadress.dart';
 import 'package:online_shop/widgets/reusable_text.dart';
@@ -85,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LoginPage()));
+                                builder: (context) => const OrderPage()));
                       },
                     ),
                     ListTile(
