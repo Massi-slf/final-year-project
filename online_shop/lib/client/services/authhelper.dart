@@ -59,4 +59,5 @@ class AuthHelpr {
       throw Exception("Fialed get the profile data");
     }
   }
+  
 }
