@@ -3,6 +3,7 @@ import 'package:online_shop/client/controllers/login_provider.dart';
 import 'package:online_shop/client/services/authhelper.dart';
 import 'package:online_shop/client/views/shared/appstyle.dart';
 import 'package:online_shop/client/views/shared/export_packages.dart';
+import 'package:online_shop/client/views/ui/order.dart';
 import 'package:online_shop/common/auth/login.dart';
 import 'package:online_shop/client/views/ui/nonuser.dart';
 
@@ -23,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return authNotifier.loggeIn == false
         ? const NonUser()
         : Scaffold(
-            backgroundColor: Colors.white,
+            backgroundColor: const Color(0xFFE2E2E2),
             body: CustomScrollView(
               physics: const ClampingScrollPhysics(),
               slivers: <Widget>[
@@ -44,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           } else if (snapshot.hasError) {
                             return Center(
                               child: ReusableText(
-                                text: "Error getting DATA",
+                                text: "Error getting data",
                                 style:
                                     appstyle(18, Colors.black, FontWeight.w600),
                               ),
@@ -85,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LoginPage()));
+                                builder: (context) => const OrderPage()));
                       },
                     ),
                     ListTile(

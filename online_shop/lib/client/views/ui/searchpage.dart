@@ -53,7 +53,6 @@ class _SearchPageState extends State<SearchPage> {
           ? Container(
               height: 600.h,
               padding: EdgeInsets.all(20.h),
-              child: Image.asset("assets/images/Pose23.png"),
             )
           : FutureBuilder<List<Sneakers>>(
               future: Helper().search(search.text),

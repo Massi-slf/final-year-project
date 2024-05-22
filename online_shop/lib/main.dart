@@ -1,6 +1,7 @@
 import 'package:online_shop/client/controllers/login_provider.dart';
 import 'package:online_shop/client/views/shared/export.dart';
 import 'package:online_shop/client/views/shared/export_packages.dart';
+import 'package:online_shop/common/auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           ),
 
           // sets the homescreen of the app
-          home: MainScreen(),
+          home: const LoginPage(),
         );
       }
     );

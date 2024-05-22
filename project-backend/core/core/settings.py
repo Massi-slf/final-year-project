@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["localhost","127.0.0.1","10.0.2.2","192.168.254.69"]
+ALLOWED_HOSTS = ["localhost","127.0.0.1","10.0.2.2","192.168.191.69"]
 HOST = os.getenv("HOST")
 if HOST:
     ALLOWED_HOSTS.append(HOST)
