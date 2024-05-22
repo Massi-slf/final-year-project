@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:online_shop/controllers/login_provider.dart';
-import 'package:online_shop/services/authhelper.dart';
-import 'package:online_shop/views/shared/appstyle.dart';
-import 'package:online_shop/views/shared/export_packages.dart';
-import 'package:online_shop/views/ui/auth/login.dart';
-import 'package:online_shop/views/ui/nonuser.dart';
+import 'package:online_shop/client/controllers/login_provider.dart';
+import 'package:online_shop/client/services/authhelper.dart';
+import 'package:online_shop/client/views/shared/appstyle.dart';
+import 'package:online_shop/client/views/shared/export_packages.dart';
+import 'package:online_shop/common/auth/login.dart';
+import 'package:online_shop/client/views/ui/nonuser.dart';
 
-import 'package:online_shop/views/ui/shippingadress.dart';
-import 'package:online_shop/widgets/reusable_text.dart';
+import 'package:online_shop/client/views/ui/shippingadress.dart';
+import 'package:online_shop/client/widgets/reusable_text.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

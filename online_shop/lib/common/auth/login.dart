@@ -7,8 +7,6 @@ import 'package:online_shop/common/auth/registertion.dart';
 import 'package:online_shop/client/widgets/custom_textfield.dart';
 import 'package:online_shop/client/widgets/reusable_text.dart';
 
-import 'package:http/http.dart' as http;
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

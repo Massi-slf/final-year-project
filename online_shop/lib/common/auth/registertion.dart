@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/controllers/login_provider.dart';
-import 'package:online_shop/model/auth/signup_model.dart';
-import 'package:online_shop/views/shared/appstyle.dart';
-import 'package:online_shop/views/shared/export_packages.dart';
-import 'package:online_shop/views/shared/reuseable_text.dart';
-import 'package:online_shop/views/ui/auth/login.dart';
-import 'package:online_shop/widgets/custom_textfield.dart';
-import 'package:online_shop/widgets/reusable_text.dart';
+import 'package:online_shop/client/controllers/login_provider.dart';
+import 'package:online_shop/client/model/auth/signup_model.dart';
+import 'package:online_shop/client/views/shared/appstyle.dart';
+import 'package:online_shop/client/views/shared/export_packages.dart';
+import 'package:online_shop/client/views/shared/reuseable_text.dart';
+import 'package:online_shop/common/auth/login.dart';
+import 'package:online_shop/client/widgets/custom_textfield.dart';
+import 'package:online_shop/client/widgets/reusable_text.dart';
 
 class Registertion extends StatefulWidget {
   const Registertion({super.key});
