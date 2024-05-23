@@ -31,6 +31,11 @@ class BasicProductSerializer(serializers.ModelSerializer):
         image_urls = [absolute_base_url + image.image.url for image in obj.images.all()]
         return image_urls
 
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
 class DetailedProductSerializer(BasicProductSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
     

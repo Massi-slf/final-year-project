@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   
-  final String baseUrl = "http://10.0.2.2:8000/api"; // Corrected IP
+  final String baseUrl = "http://192.168.214.193:8000/api"; // Corrected IP
 
   Future<Map<String, dynamic>> fetchProducts() async {
     final response = await http.get(Uri.parse('$baseUrl/products/'));
@@ -28,9 +28,6 @@ class ApiService {
   Future<void> deleteProduct(String productId) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String token = await prefs.getString('token')!;
-    print("----------------------------");
-print(token);
-        print("----------------------------");
 
     final response = await http.delete(
     

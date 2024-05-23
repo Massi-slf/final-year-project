@@ -34,6 +34,8 @@ class Product {
         id: json["_id"],
     );
 
+  Object? toJson() {}
+
 
 }
 

@@ -14,6 +14,17 @@ class Product {
     required this.category,
     required this.quantity,
   });
+   Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'price': price,
+      'images': images,
+      'category': category.toJson(),
+      'quantity': quantity,
+    };
+  }
+
 
   factory Product.fromJson(Map<String, dynamic> json) {
     print("-----------");
@@ -48,5 +59,10 @@ class Category {
       name: json['name'] ?? '',
       parent: json['parent'] ?? null,
     );
+    
   }
-}
+   Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+    };
+}}

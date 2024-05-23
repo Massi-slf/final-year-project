@@ -72,7 +72,7 @@ class _EditProductState extends State<EditProduct> {
         return AlertDialog(
           title: Text('Delete Product'),
           content: Text('Are you sure you want to delete this product?'),
-          actions: [
+            actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
