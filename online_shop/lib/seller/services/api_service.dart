@@ -23,4 +23,17 @@ class ApiService {
       throw Exception('Failed to load products');
     }
   }
+  Future<void> deleteProduct(String productId) async {
+    final response = await http.delete(
+      Uri.parse('$baseUrl/products/$productId'),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'access', 
+      },
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete product: ${response.reasonPhrase}');
+    }
+  }
 }

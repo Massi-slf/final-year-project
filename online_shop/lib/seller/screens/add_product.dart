@@ -17,6 +17,7 @@ class _AddProductState extends State<AddProduct> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
+final TextEditingController quantityController = TextEditingController();
 
   final ImagePicker _picker = ImagePicker();
 
@@ -68,7 +69,7 @@ class _AddProductState extends State<AddProduct> {
     );
   }
 
-  void _onConfirmButtonPressed() {
+  void _onConfirmButtonPressed({required int quantity}) {
     if (nameController.text.isNotEmpty &&
         categoryController.text.isNotEmpty &&
         priceController.text.isNotEmpty &&
@@ -78,7 +79,7 @@ class _AddProductState extends State<AddProduct> {
         name: nameController.text,
         category: Category(name: categoryController.text, id: '', parent: null),
         price: priceController.text,
-        images: [_image!.path], id: '', quantity: 3,
+        images: [_image!.path], id: '', quantity:quantity ,
       );
 
       // Show confirmation dialog
@@ -152,14 +153,25 @@ class _AddProductState extends State<AddProduct> {
                     ),
                     keyboardType: TextInputType.number,
                   ),
+                  const SizedBox(height: 16.0),
+                   TextFormField(
+                    controller: quantityController,
+                    decoration: const InputDecoration(
+                      labelText: 'quantity',
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
                   const SizedBox(height: 32.0),
                   ElevatedButton(
-                    onPressed: _onConfirmButtonPressed,
+                    onPressed: () {
+                      _onConfirmButtonPressed(quantity: int.parse(quantityController.text) );
+                    },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.black,
                     ),
-                    child: const Text('Confirm'),
+                      child: const Text('Confirm'),
                   ),
                 ],
               ),

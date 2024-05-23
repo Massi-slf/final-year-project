@@ -4,6 +4,7 @@ import 'package:online_shop/client/views/shared/reuseable_text.dart';
 import 'package:online_shop/client/widgets/reusable_text.dart';
 import 'package:online_shop/seller/models/product.dart';
 import 'package:online_shop/seller/screens/products_screen.dart';
+import 'package:online_shop/seller/services/api_service.dart';
 
 class EditProduct extends StatefulWidget {
   final Product product;
@@ -19,6 +20,7 @@ class _EditProductState extends State<EditProduct> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController imageUrlController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
+  final ApiService _apiService = ApiService();
 
   @override
   void initState() {
@@ -48,7 +50,7 @@ class _EditProductState extends State<EditProduct> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => ProductScreen()),
                 );
@@ -61,6 +63,47 @@ class _EditProductState extends State<EditProduct> {
         );
       },
     );
+  }
+
+  void _showDeleteConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Delete Product'),
+          content: Text('Are you sure you want to delete this product?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await _deleteProduct();
+              },
+              child: Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _deleteProduct() async {
+    try {
+      await _apiService.deleteProduct(widget.product.id);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ProductScreen()),
+      );
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to delete product: $error')),
+      );
+    }
   }
 
   void _onConfirmButtonPressed() {
@@ -92,6 +135,12 @@ class _EditProductState extends State<EditProduct> {
             text: "Edit Product",
             style: appstyle(35, Colors.black, FontWeight.bold)),
         backgroundColor: const Color(0xFFE2E2E2),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.delete, color: Colors.red),
+            onPressed: _showDeleteConfirmationDialog,
+          ),
+        ],
       ),
       body: Container(
         color: const Color(0xFFE2E2E2),
