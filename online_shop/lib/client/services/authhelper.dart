@@ -22,6 +22,7 @@ class AuthHelpr {
       await prefs.setString('token', userToken);
       await prefs.setString('userID', userID);
       await prefs.setBool('isLogged', true);
+      
 
       return true;
     } else {

@@ -13,10 +13,15 @@ class ProductsAddListView(ListCreateAPIView):
     def get_queryset(self):
         return Product.objects.all().order_by('name')
 
-class DetailedProductView(RetrieveAPIView):
-    permission_classes = [AllowAny]
+class ProductDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
-    lookup_field = 'name'
+    serializer_class = BasicProductSerializer
+    
+
+class DetailedProductView(RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Product.objects.all()
+    lookup_field = "id"
     serializer_class = DetailedProductSerializer
 
 class CategoryListCreateManagerView(ListCreateAPIView):

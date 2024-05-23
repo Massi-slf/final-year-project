@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
+  
   final String baseUrl = "http://10.0.2.2:8000/api"; // Corrected IP
 
   Future<Map<String, dynamic>> fetchProducts() async {
@@ -24,15 +26,22 @@ class ApiService {
     }
   }
   Future<void> deleteProduct(String productId) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String token = await prefs.getString('token')!;
+    print("----------------------------");
+print(token);
+        print("----------------------------");
+
     final response = await http.delete(
-      Uri.parse('$baseUrl/products/$productId'),
+    
+      Uri.parse('$baseUrl/products/$productId/'),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'access', 
+        'Authorization': 'Bearer $token', 
       },
     );
 
-    if (response.statusCode != 200) {
+    if (response.statusCode != 204) {
       throw Exception('Failed to delete product: ${response.reasonPhrase}');
     }
   }
